@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" style="height: 300vh">
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
