@@ -63,17 +63,19 @@ export default {
 
   &__container {
     /*display: block; // 顶部不固定*/
+    overflow-x: hidden;
   }
 
   &__content {
     margin: 0;
-    padding: 0 @padding-md;
+    padding: @padding-md;
     background: transparent;
     overflow: auto;
   }
 
   &__view {
-    margin: @padding-md 0 @padding-lg;
+    //margin: @padding-md 0 @padding-lg;
+    //margin-bottom: @padding-md;
     min-height: 60vh;
 
     &.ant-card,

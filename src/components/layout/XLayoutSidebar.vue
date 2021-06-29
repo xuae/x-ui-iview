@@ -246,9 +246,26 @@ export default {
   height: 100vh;
   overflow: auto;
 
-  ::v-deep .ivu-menu-item {
-    padding-top: 10px;
-    padding-bottom: 10px;
+  ::v-deep .ivu-menu {
+    .ivu-menu-item {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .ivu-menu-submenu-title {
+      padding-right: 48px;
+    }
+
+    .ivu-menu-item,
+    .ivu-menu-submenu-title {
+      display: flex;
+      align-items: center;
+
+      & > span {
+        flex: 1;
+        width: 0;
+      }
+    }
   }
 
   &__logo {
@@ -302,8 +319,9 @@ export default {
 
     &--collapsed {
       span {
-        width: 0px;
-        transition: width 0.2s ease;
+        flex: unset !important;
+        width: 0px !important;
+        transition: all 0.2s ease;
       }
 
       .ivu-icon:first-child {

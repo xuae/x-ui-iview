@@ -4,6 +4,29 @@ import XLayout from '@/components/layout/XLayout';
 
 Vue.use(VueRouter);
 
+const asyncComponent = func => ({
+  component: func,
+  delay: 0,
+  timeout: 30000,
+  // errorComponent: ErrorComponent,
+  // loadingComponent: LoadingComponent,
+});
+
+const LOAD_MAP = {
+  components: name => {
+    return r =>
+      require.ensure(
+        [],
+        () => r(require(`@/views/docs/${name}.md`)),
+        'components'
+      );
+  },
+};
+
+const load = function (filePath, chunkName) {
+  return LOAD_MAP[chunkName](filePath);
+};
+
 /**
  * 页面路由 + 侧边栏菜单配置
  *
@@ -30,6 +53,36 @@ const routes = [
         name: 'home',
         component: () => import('@/views/Home'),
         meta: { title: '首页', icon: 'md-home' },
+      },
+    ],
+  },
+
+  {
+    path: '/components',
+    component: XLayout,
+    name: 'components',
+    meta: { title: '组件', icon: 'ios-keypad' },
+    children: [
+      {
+        path: 'link',
+        name: 'link',
+        component: load('Link', 'components'),
+        meta: { title: 'Link 链接' },
+      },
+      {
+        path: 'table',
+        name: 'table',
+        component: load('Table', 'components'),
+        meta: { title: 'Table 表格' },
+      },
+      {
+        path: 'back-top',
+        name: 'backTop',
+        // component: r => r(require('@/views/docs/BackTop.md')),
+        // component: r => asyncComponent(r(require('@/views/docs/BackTop.md'))),
+        component: load('BackTop', 'components'),
+        // component: r => require.ensure([], () => r(require('@/views/docs/BackTop.md')), 'components'),
+        meta: { title: 'BackTop 返回顶部' /*, icon: 'md-arrow-up'*/ },
       },
     ],
   },
@@ -136,9 +189,22 @@ const routes = [
     ],
   },
 ];
+// 解决重复跳转路由报错
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err);
+};
 
 const router = new VueRouter({
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    // if (to.hash) {
+    //   return {
+    //     selector: decodeURI(to.hash),
+    //     // behavior: 'smooth',
+    //   };
+    // }
+  },
 });
 
 export default router;
