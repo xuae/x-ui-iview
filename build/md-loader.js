@@ -35,7 +35,7 @@ module.exports = function (source) {
       }
       const html = prism.highlight(str, prism.languages[lang], lang);
       const className = `language-${lang}`;
-      return `<pre class="${className} line-numbers match-braces"><code class="${className}">${html}</code></pre>`;
+      return `<pre v-pre class="${className} line-numbers match-braces"><code class="${className}">${html}</code></pre>`;
     },
   });
   // 根据标题生成标题锚点
@@ -91,12 +91,6 @@ module.exports = function (source) {
           const compiled = compileTemplate({
             source: template.content,
             compiler: compiler,
-            compilerParseOptions: {
-              pad: 'line',
-            },
-            // compilerOptions: {
-            //   mode: 'function',
-            // },
           });
           const { tips, errors, code } = compiled;
           // tips
@@ -111,9 +105,7 @@ module.exports = function (source) {
           }
           // code
           if (code) {
-            templateCodeRender = `
-            ${code.replace('return function render', 'function render')}
-            `;
+            templateCodeRender = `${code}`;
           }
         }
 
@@ -142,6 +134,7 @@ module.exports = function (source) {
           ${script}
            return {
              render,
+             staticRenderFns,
              ...exportJavaScript
           }
         })()`;
@@ -151,7 +144,6 @@ module.exports = function (source) {
         return `<demo-block>
         <template #source><${name} /></template>
         ${desc ? `<template #description>${md.render(desc)}</template>` : ''}
-        <!--x-ui-demo: ${content}:x-ui-demo-->
         `;
       }
       return '</demo-block>';
