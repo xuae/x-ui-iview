@@ -194,8 +194,8 @@ Function({ current: number, size: number }) => Promise<{
 }>
 ```
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 |
-| ---- | ---- | ---- | ------ | ------ |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 版本   |
+| ---- | ---- | ---- | ------ | ------ | ------ |
 | data | 表格数据 | _array_ / _function_ | — | — |
 | columns | 列数据，具体请查看 iview 官方文档 | _array_ | — | — |
 | max-height | 出现纵向滚动条的高度 | _number_ | — | — |
@@ -212,6 +212,6 @@ Function({ current: number, size: number }) => Promise<{
 请查看 <a href="http://v1.iviewui.com/components/table" target="_blank">iview</a> 官方文档中表格的事件
 
 ### Methods
-| 方法名称  | 说明      | 类型  |
-| --------- | --------- | --------- |
+| 方法名称  | 说明      | 类型      | 版本      |
+| --------- | --------- | --------- | --------- |
 | refreshTableData     | 刷新表格数据  | *Function(current: number, size: number)*   |
