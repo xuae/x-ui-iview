@@ -1,8 +1,6 @@
 <template>
   <footer class="footer">
-    <a href="http://xuae.github.io/vue-admin-antd/" target="_blank">
-      Vue Admin Antd
-    </a>
+    <a href="http://xuae.github.io/vue-admin-antd/" target="_blank">Vue Admin Antd</a>
     <a href="http://www.github.com/xuae/vue-admin-antd" target="_blank">
       <a-icon type="github" />
     </a>

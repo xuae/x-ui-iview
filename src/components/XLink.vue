@@ -21,14 +21,7 @@ export default {
       type: String,
       default: null,
       validator: val => {
-        return [
-          'primary',
-          'info',
-          'warning',
-          'success',
-          'error',
-          'subsidiary',
-        ].includes(val);
+        return ['primary', 'info', 'warning', 'success', 'error', 'subsidiary'].includes(val);
       },
     },
   },

@@ -34,11 +34,7 @@
         <template v-if="showMenu(item)">
           <!--一级根菜单，menu = item-->
           <template v-if="isRootMenu(item)">
-            <MenuItem
-              v-if="!getSubMenus(item)"
-              :key="item.name"
-              :name="item.name"
-            >
+            <MenuItem v-if="!getSubMenus(item)" :key="item.name" :name="item.name">
               <Icon v-if="getMenuIcon(item)" :type="getMenuIcon(item)" />
               <span>{{ getMenuTitle(item) }}</span>
             </MenuItem>
@@ -51,17 +47,10 @@
               :key="item.children[0].name"
               :name="item.children[0].name"
             >
-              <Icon
-                v-if="getMenuIcon(item.children[0])"
-                :type="getMenuIcon(item.children[0])"
-              />
+              <Icon v-if="getMenuIcon(item.children[0])" :type="getMenuIcon(item.children[0])" />
               <span>{{ getMenuTitle(item.children[0]) }}</span>
             </MenuItem>
-            <x-layout-sidebar-menu
-              v-else
-              :key="item.children[0].name"
-              :menu="item.children[0]"
-            />
+            <x-layout-sidebar-menu v-else :key="item.children[0].name" :menu="item.children[0]" />
           </template>
         </template>
       </template>
@@ -162,9 +151,7 @@ export default {
       }
       if (this.sidebar.uniqueOpened) {
         // latestOpenKey 无值表示当前菜单被关闭，有值表示当前点击展开的菜单 key
-        const latestOpenKey = openKeys.find(
-          key => !this.openMenuKeys.includes(key)
-        );
+        const latestOpenKey = openKeys.find(key => !this.openMenuKeys.includes(key));
         let data = openKeys;
         if (latestOpenKey && this.rootMenuKeys.includes(latestOpenKey)) {
           data = [latestOpenKey];

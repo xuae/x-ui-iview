@@ -77,12 +77,7 @@ export default {
 
     // 面包屑是否有页面
     hasView(name, meta, children, index) {
-      return (
-        !name ||
-        !children ||
-        children.length === 0 ||
-        index === this.route.matched.length - 1
-      );
+      return !name || !children || children.length === 0 || index === this.route.matched.length - 1;
     },
 
     // 左侧菜单栏折叠事件

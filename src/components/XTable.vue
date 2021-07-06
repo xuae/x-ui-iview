@@ -10,11 +10,7 @@
       :columns="columns"
       v-on="$listeners"
     >
-      <template
-        v-for="item in slotsColumns"
-        :slot="item.slot"
-        slot-scope="{ column, row, index }"
-      >
+      <template v-for="item in slotsColumns" :slot="item.slot" slot-scope="{ column, row, index }">
         <slot :name="item.slot" :column="column" :row="row" :index="index" />
       </template>
     </Table>
@@ -135,10 +131,7 @@ export default {
             this.tableData = [...this.data];
           } else {
             const { current, size } = this.pageData;
-            this.tableData = this.data?.slice(
-              (current - 1) * size,
-              current * size
-            );
+            this.tableData = this.data?.slice((current - 1) * size, current * size);
           }
         }
       },
@@ -158,12 +151,7 @@ export default {
             current,
             size,
           });
-          if (
-            res.data &&
-            res.data.total > 0 &&
-            res.data.data.length === 0 &&
-            current > 1
-          ) {
+          if (res.data && res.data.total > 0 && res.data.data.length === 0 && current > 1) {
             return this.getTableData(current - 1);
           }
           this.tableData = res.data?.data || [];
@@ -177,10 +165,7 @@ export default {
         if (this.noPages) {
           this.tableData = [...this.data];
         } else {
-          this.tableData = this.data?.slice(
-            (current - 1) * size,
-            current * size
-          );
+          this.tableData = this.data?.slice((current - 1) * size, current * size);
           this.pageData.total = this.data?.length || 0;
           this.pageData.current = current;
           this.pageData.size = size;

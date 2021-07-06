@@ -7,11 +7,7 @@
 
       <Content ref="content" class="layout__content">
         <x-back-top :target="backTopTarget" class="layout__back"></x-back-top>
-        <router-view
-          v-if="isRouterAlive"
-          :key="$route.fullPath"
-          class="layout__view"
-        />
+        <router-view v-if="isRouterAlive" :key="$route.fullPath" class="layout__view" />
       </Content>
     </Layout>
   </Layout>

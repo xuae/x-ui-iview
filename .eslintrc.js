@@ -36,7 +36,7 @@ module.exports = {
     'vue/max-attributes-per-line': [
       'warn',
       {
-        singleline: 4,
+        singleline: 6,
         multiline: {
           max: 1,
           allowFirstLine: false,
@@ -196,6 +196,7 @@ module.exports = {
     'prettier/prettier': [
       'warn',
       {
+        printWidth: 100,
         semi: true,
         singleQuote: true,
         quoteProps: 'consistent',
