@@ -14,12 +14,7 @@ const asyncComponent = func => ({
 
 const LOAD_MAP = {
   components: name => {
-    return r =>
-      require.ensure(
-        [],
-        () => r(require(`@/views/docs/${name}.md`)),
-        'components'
-      );
+    return r => require.ensure([], () => r(require(`@/views/docs/${name}.md`)), 'components');
   },
 };
 
@@ -56,24 +51,56 @@ const routes = [
       },
     ],
   },
-
+  {
+    path: '/table',
+    component: XLayout,
+    redirect: { name: 'table' },
+    children: [
+      {
+        path: '',
+        name: 'table',
+        component: load('Table', 'components'),
+        meta: { title: 'Table 表格', icon: 'md-list-box' },
+      },
+    ],
+  },
+  {
+    path: '/form',
+    component: XLayout,
+    name: 'form',
+    meta: { title: 'Form 表单', icon: 'md-clipboard' },
+    children: [
+      {
+        path: 'item',
+        name: 'item',
+        component: load('FormItem', 'components'),
+        meta: { title: 'FormItem' },
+      },
+      {
+        path: 'input',
+        name: 'input',
+        component: load('Input', 'components'),
+        meta: { title: 'Input 输入框' },
+      },
+      {
+        path: 'select',
+        name: 'select',
+        component: load('Select', 'components'),
+        meta: { title: 'Select 下拉框' },
+      },
+    ],
+  },
   {
     path: '/components',
     component: XLayout,
     name: 'components',
-    meta: { title: '组件', icon: 'ios-keypad' },
+    meta: { title: '其他组件', icon: 'ios-keypad' },
     children: [
       {
         path: 'link',
         name: 'link',
         component: load('Link', 'components'),
         meta: { title: 'Link 链接' },
-      },
-      {
-        path: 'table',
-        name: 'table',
-        component: load('Table', 'components'),
-        meta: { title: 'Table 表格' },
       },
       {
         path: 'back-top',
