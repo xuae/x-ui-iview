@@ -39,10 +39,10 @@ export default {
   data() {
     return {
       options: [
-        { label: '香蕉', value: 1},
-        { label: '成都', value: 2},
-        { label: '地铁', value: 3},
-        { label: '电视', value: 4},
+        { label: '香蕉', value: 1 },
+        { label: '成都', value: 2 },
+        { label: '地铁', value: 3 },
+        { label: '电视', value: 4 },
       ],
       formData: { 
         fruit: null,
@@ -98,10 +98,83 @@ export default {
     return {
       replaceFields: { label: 'title', value: 'key' },
       options: [
-        { title: '香蕉', key: 1},
-        { title: '成都', key: 2},
-        { title: '地铁', key: 3},
-        { title: '电视', key: 4},
+        { title: '香蕉', key: 1 },
+        { title: '成都', key: 2 },
+        { title: '地铁', key: 3 },
+        { title: '电视', key: 4 },
+      ],
+    }
+  },
+}
+</script>
+```
+:::
+
+### 自定义模板
+
+:::demo
+```html
+<template>
+  <Form :label-width="100" label-colon>
+    <x-form-item label="自定义模板">
+      <x-select :options="options">
+        <template v-slot:default="{ item, index }">
+          <span>{{ item.label }}</span>
+          <span style="float:right;color:#ccc">{{ index }}</span>
+        </template>
+      </x-select>
+    </x-form-item>
+  </Form>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      options: [
+        { label: '香蕉', value: 1 },
+        { label: '成都', value: 2 },
+        { label: '地铁', value: 3 },
+        { label: '电视', value: 4 },
+      ],
+    }
+  },
+}
+</script>
+```
+:::
+
+### 分组
+
+:::demo
+```html
+<template>
+  <Form :label-width="100" label-colon>
+    <x-form-item label="分组">
+      <x-select :options="options" />
+    </x-form-item>
+  </Form>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      options: [
+        {
+          label: '水果',
+          children: [
+            { label: '香蕉', value: 1 },
+            { label: '苹果', value: 2 },
+            { label: '梨', value: 3 },
+          ],
+        },
+        {
+          label: '地名',
+          children: [
+            { label: '成都', value: 4 },
+            { label: '北京', value: 5 },
+            { label: '上海', value: 6 },
+          ],
+        },
       ],
     }
   },
@@ -145,10 +218,10 @@ export default {
   data() {
     return {
       options: [
-        { label: '香蕉', value: 1},
-        { label: '成都', value: 2},
-        { label: '地铁', value: 3},
-        { label: '电视', value: 4},
+        { label: '香蕉', value: 1 },
+        { label: '成都', value: 2 },
+        { label: '地铁', value: 3 },
+        { label: '电视', value: 4 },
       ],
       model1: null,
       model2: null,
@@ -172,21 +245,20 @@ export default {
 ### Props
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 版本   |
 | ---- | ---- | ---- | ------ | ------ | ------ |
-| value | 绑定的值，可使用 v-model 双向绑定 | _string_ / _number_ | — | — |
+| value | 绑定的值，可使用 v-model 双向绑定 | _string_ / _number_ / _array_ | — | — |
 | readonly | 是否只读 | _boolean_ | — | `false` |
 | placeholder | 占位文本 | _string_ | — | `请输入` |
 | clearable | 是否显示清空按钮 | _boolean_ | — | `true` |
 | disabled | 是否禁用 | _boolean_ | — | `false` |
 | empty-text | 空值时显示的内容 | _string_ | — | `暂无数据` |
-| format | 格式化值 | _function(value)_ | — | — |
+| options | 选项值 | _array_ | — | — |
+| replace-fields | 替换 options 中对应的字段 | _object_ | — | `{ label: 'label', value: 'value', children: 'children' }` |
 
 ### Slots
 | 插槽名称  | 说明      | 版本      |
 | --------- | --------- | --------- |
-| prepend   | 前置内容，仅在 text 类型下有效  |
-| append    | 后置内容，仅在 text 类型下有效  |
-| prefix    | 输入框头部图标  |
-| suffix    | 输入框尾部图标  |
+| default   | 自定义选项内容，作用域插槽，数据：{ item, index }  |
+| prefix    | 自定义 Select 内头部图标  |
 
 ### Events
 | 事件名称  | 说明      | 回调参数  | 版本      |

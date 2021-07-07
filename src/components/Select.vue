@@ -19,7 +19,20 @@
         <slot name="prefix" />
       </template>
       <template v-for="(item, index) in optionsData">
-        <Option :key="index" :value="item[fields.value]">{{ item[fields.label] }}</Option>
+        <OptionGroup
+          v-if="item[fields.children] && item[fields.children].length > 0"
+          :key="index"
+          :label="item.label"
+        >
+          <template v-for="(option, inx) in item[fields.children]">
+            <Option :key="inx" :value="option[fields.value]" :label="option[fields.label]">
+              <slot name="default" :item="option" :index="inx" />
+            </Option>
+          </template>
+        </OptionGroup>
+        <Option v-else :key="index" :value="item[fields.value]" :label="item[fields.label]">
+          <slot name="default" :item="item" :index="index" />
+        </Option>
       </template>
     </Select>
   </span>
@@ -47,7 +60,7 @@ export default {
     replaceFields: {
       type: Object,
       default: () => {
-        return { label: 'label', value: 'value' };
+        return { label: 'label', value: 'value', children: 'children' };
       },
     },
     // 占位文本
@@ -90,7 +103,7 @@ export default {
   computed: {
     // 字段名
     fields() {
-      const def = { label: 'label', value: 'value' };
+      const def = { label: 'label', value: 'value', children: 'children' };
       return { ...def, ...this.replaceFields };
     },
     // 选中的值
