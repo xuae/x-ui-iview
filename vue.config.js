@@ -2,6 +2,7 @@ const { resolve } = require('path');
 
 module.exports = {
   lintOnSave: false,
+  publicPath: './', // 部署应用包时的基本 URL 为相对路径
   css: {
     loaderOptions: {
       less: {
