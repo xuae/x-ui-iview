@@ -100,6 +100,12 @@ const routes = [
         component: load('CheckboxGroup', 'components'),
         meta: { title: 'CheckboxGroup 多选框' },
       },
+      {
+        path: 'radio-group',
+        name: 'radio-group',
+        component: load('RadioGroup', 'components'),
+        meta: { title: 'RadioGroup 单选框' },
+      },
     ],
   },
   {
