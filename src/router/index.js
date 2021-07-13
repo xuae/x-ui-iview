@@ -83,6 +83,12 @@ const routes = [
         meta: { title: 'Input 输入框' },
       },
       {
+        path: 'input-number',
+        name: 'input-number',
+        component: load('InputNumber', 'components'),
+        meta: { title: 'InputNumber 数字输入框' },
+      },
+      {
         path: 'select',
         name: 'select',
         component: load('Select', 'components'),
