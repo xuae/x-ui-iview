@@ -86,7 +86,8 @@ export default {
   },
   methods: {
     onChange(event) {
-      this.inputVal = event?.target?.value || null;
+      const value = event?.target?.value;
+      this.inputVal = this.$utils.isNull(value) ? null : value;
       this.$emit('change', this.inputVal);
     },
     onBlur() {

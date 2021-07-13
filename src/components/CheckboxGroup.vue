@@ -137,7 +137,7 @@ export default {
     },
     options: {
       handler(val) {
-        this.optionsData = val || [];
+        this.optionsData = this.$utils.isNull(val) ? [] : val;
       },
       deep: true,
       immediate: true,
@@ -162,7 +162,7 @@ export default {
   },
   methods: {
     onChange(value) {
-      this.selectedVal = value || [];
+      this.selectedVal = this.$utils.isNull(value) ? [] : value;
       this.$emit('change', this.selectedVal);
     },
   },

@@ -192,7 +192,7 @@ export default {
   methods: {
     onChange(val) {
       const value = this.labelInValue ? val?.value : val;
-      this.selectedVal = value || value === 0 ? value : null;
+      this.selectedVal = this.$utils.isNull(value) ? null : value;
       // if (typeof this.selectedVal === 'string') {
       //   this.selectedVal = this.selectedVal.trim();
       // }

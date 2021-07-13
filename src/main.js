@@ -7,7 +7,10 @@ import DemoBlock from '@/views/components/DemoBlock';
 import IView from 'view-design';
 import router from './router';
 import store from './store';
+import Utils from './utils';
 import Vue from 'vue';
+
+Vue.prototype.$utils = Utils;
 
 // 注册自定义组件
 Vue.use(components);
