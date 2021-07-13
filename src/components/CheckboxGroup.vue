@@ -10,7 +10,13 @@
       v-on="$listeners"
       @on-change="onChange"
     >
-      <Checkbox v-for="(item, index) in optionsData" :key="index" :label="item[fields.value]" :border="border" :disabled="disabled || item.disabled">
+      <Checkbox
+        v-for="(item, index) in optionsData"
+        :key="index"
+        :label="item[fields.value]"
+        :border="border"
+        :disabled="disabled || item.disabled"
+      >
         <slot name="prefix" :item="item" :index="index" />
         <template>{{ item[fields.label] }}</template>
         <slot name="append" :item="item" :index="index" />
