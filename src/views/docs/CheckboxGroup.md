@@ -226,7 +226,6 @@ export default {
 | value | 绑定的值，可使用 v-model 双向绑定 | _array_ | — | — |
 | readonly | 是否只读 | _boolean_ | — | `false` |
 | placeholder | 占位文本 | _string_ | — | `请输入` |
-| clearable | 是否显示清空按钮 | _boolean_ | — | `true` |
 | disabled | 是否禁用 | _boolean_ | — | `false` |
 | border | 是否显示边框 | _boolean_ | — | `false` |
 | empty-text | 空值时显示的内容 | _string_ | — | `暂无数据` |

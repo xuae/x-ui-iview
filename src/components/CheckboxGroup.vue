@@ -41,7 +41,7 @@ export default {
     replaceFields: {
       type: Object,
       default: () => {
-        return { label: 'label', value: 'value', children: 'children' };
+        return { label: 'label', value: 'value' };
       },
     },
     // 占位文本
@@ -53,11 +53,6 @@ export default {
     border: {
       type: Boolean,
       default: false,
-    },
-    // 是否可删除
-    clearable: {
-      type: Boolean,
-      default: true,
     },
     // 是否只读
     readonly: {
