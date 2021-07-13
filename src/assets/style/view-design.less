@@ -32,3 +32,13 @@
     width: 18px;
   }
 }
+
+// 重置单选框按钮样式，修复浏览器不兼容：圆点不居中
+.ivu-radio-inner:after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+.ivu-radio-checked .ivu-radio-inner:after {
+  transform: translate(-50%, -50%) scale(1);
+}
