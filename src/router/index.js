@@ -88,6 +88,12 @@ const routes = [
         component: load('Select', 'components'),
         meta: { title: 'Select 下拉框' },
       },
+      {
+        path: 'checkbox-group',
+        name: 'checkbox-group',
+        component: load('CheckboxGroup', 'components'),
+        meta: { title: 'CheckboxGroup 多选框' },
+      },
     ],
   },
   {
