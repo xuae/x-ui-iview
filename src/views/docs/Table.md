@@ -209,7 +209,7 @@ Function({ current: number, size: number }) => Promise<{
 无
 
 ### Events
-请查看 <a href="http://v1.iviewui.com/components/table" target="_blank">iview</a> 官方文档中表格的事件
+请查看 <a href="https://www.iviewui.com/components/table" target="_blank">iview</a> 官方文档中表格的事件
 
 ### Methods
 | 方法名称  | 说明      | 类型      | 版本      |

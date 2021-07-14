@@ -71,7 +71,7 @@ export default {
 
 ### 支持官方的其他属性
 
-更多示例请查看 <a href="http://v1.iviewui.com/components/input-number" target="_blank">iview InputNumber</a> 官方文档
+更多示例请查看 <a href="https://www.iviewui.com/components/input-number" target="_blank">iview InputNumber</a> 官方文档
 
 :::demo
 ```html
