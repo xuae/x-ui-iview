@@ -60,7 +60,7 @@ const routes = [
         path: '',
         name: 'table',
         component: load('Table', 'components'),
-        meta: { title: 'Table 表格', icon: 'md-list-box' },
+        meta: { title: 'Table 表格组件', icon: 'md-list-box' },
       },
     ],
   },
@@ -68,7 +68,7 @@ const routes = [
     path: '/form',
     component: XLayout,
     name: 'form',
-    meta: { title: 'Form 表单', icon: 'md-clipboard' },
+    meta: { title: 'Form 表单组件', icon: 'md-clipboard' },
     children: [
       {
         path: 'item',
