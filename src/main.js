@@ -5,12 +5,14 @@ import App from './App.vue';
 import components from '@/components';
 import DemoBlock from '@/views/components/DemoBlock';
 import IView from 'view-design';
+import lodash from 'lodash';
 import router from './router';
 import store from './store';
 import Utils from './utils';
 import Vue from 'vue';
 
 Vue.prototype.$utils = Utils;
+Vue.prototype.$_ = lodash;
 
 // 注册自定义组件
 Vue.use(components);
