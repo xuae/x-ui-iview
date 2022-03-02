@@ -131,6 +131,26 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/pages',
+    component: XLayout,
+    name: 'pages',
+    meta: { title: '业务逻辑页面', icon: 'logo-buffer' },
+    children: [
+      {
+        path: 'form-build',
+        name: 'form-build',
+        component: () => import('@/views/form-build/index'),
+        meta: { title: '表单构建' },
+      },
+      {
+        path: 'form-custom',
+        name: 'form-custom',
+        component: () => import('@/views/form-custom/index'),
+        meta: { title: '自定义表单', hidden: false },
+      },
+    ],
+  },
 
   {
     path: '/menu',
