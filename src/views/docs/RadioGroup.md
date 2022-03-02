@@ -237,6 +237,7 @@ export default {
 | placeholder | 占位文本 | _string_ | — | `请输入` |
 | disabled | 是否禁用 | _boolean_ | — | `false` |
 | border | 是否显示边框 | _boolean_ | — | `false` |
+| type | 可选值为 button 或不填，为 button 时使用按钮样式 | _string_ | `button` | — |
 | empty-text | 空值时显示的内容 | _string_ | — | `暂无数据` |
 | options | 选项值 | _array_ | — | — |
 | replace-fields | 替换 options 中对应的字段 | _object_ | — | `{ label: 'label', value: 'value' }` |

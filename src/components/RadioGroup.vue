@@ -3,7 +3,14 @@
     <template v-if="readonly">
       {{ selected ? selected[fields.label] : emptyText }}
     </template>
-    <RadioGroup v-else :value="selectedVal" v-bind="$attrs" v-on="$listeners" @on-change="onChange">
+    <RadioGroup
+      v-else
+      :value="selectedVal"
+      v-bind="$attrs"
+      v-on="$listeners"
+      :type="type"
+      @on-change="onChange"
+    >
       <Radio
         v-for="(item, index) in optionsData"
         :key="index"
@@ -53,6 +60,10 @@ export default {
     border: {
       type: Boolean,
       default: false,
+    },
+    // 可选值为 button 或不填，为 button 时使用按钮样式
+    type: {
+      type: String,
     },
     // 是否只读
     readonly: {
